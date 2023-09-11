@@ -19,6 +19,6 @@ app.get('/', (req, res) => {
 const schedule = require('node-schedule');
 
 const j = schedule.scheduleJob('10 * * * * *', function() {
-	console.log("매 10초마다 실행");
+//	console.log("매 10초마다 실행");
 });
 
