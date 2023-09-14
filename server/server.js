@@ -1,21 +1,21 @@
 const express = require("express");
 const app = express();
-//const test = require("./Router/test");
 
+/* Router TEST */
+//const test = require("./Router/test");
 //app.use("/api", test);
 
+
+//설정포트확인
 const port = 5000;
 app.listen(port, () => console.log(`${port}`));
 
+//서버 기본 응답메세지
 app.get('/', (req, res) => {
 	res.send('Hellow World!!!!! CSS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n')
 });
 
-
-
-
-
-/* node-schedule */
+/* node-schedule 스케쥴 테스트 매 10초만 출력 */
 const schedule = require('node-schedule');
 
 const j = schedule.scheduleJob('10 * * * * *', function() {
@@ -24,9 +24,7 @@ const j = schedule.scheduleJob('10 * * * * *', function() {
 
 
 
-
-/* h2 db test */
-/*
+/* JDBC 테스트 */
 const JDBC = require('jdbc');
 const jinst = require('jdbc/lib/jinst');
 
@@ -36,6 +34,7 @@ if (!jinst.isJvmCreated()) {
 }
 
 let h2 = new JDBC({
+  //url: 'jdbc:h2:tcp://localhost:5234/exoplanets;database_to_lower=true',
   url: 'jdbc:h2:~/test',
   drivername: 'org.h2.Driver',
   properties: {
@@ -70,12 +69,14 @@ function queryDB(sql, callback) {
 module.exports = {
   initialize: function(callback) {
     getH2((err) => {
-      queryDB("SELECT * FROM TB_LTWINNUM", (result)=> {
-       result.toObjArray((err, results) => {
-	        console.log("h2 db test");
-		console.log(results);
-       });
-      });
+      queryDB("CREATE TABLE IF NOT EXISTS exoplanets ("
+        + "  id INT PRIMARY KEY AUTO_INCREMENT,"
+        + "  name VARCHAR NOT NULL,"
+        + "  year_discovered SIGNED,"
+        + "  light_years FLOAT,"
+        + "  mass FLOAT,"
+        + "  link VARCHAR)"
+      );
     });
- 
-},*/
+  }
+};
