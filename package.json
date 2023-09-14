@@ -6,12 +6,17 @@
   "main": "src/index.js",
   "dependencies": {
     "express": "^4.18.2",
+    "java": "^0.13.0",
+    "jdbc": "^0.7.6",
     "loader-utils": "3.2.1",
+    "node-gyp": "^9.4.0",
+    "node-jdbc-connection": "0.0.3",
     "node-schedule": "^2.1.1",
     "nodemon": "^3.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "rebuild": "^0.1.2"
   },
   "devDependencies": {
     "@babel/runtime": "7.13.8",
