@@ -61,98 +61,18 @@ h2.reserve(function(err, connObj) {
   var conn = connObj.conn;
                
   conn.createStatement(function(err, statement) {
+    statement.executeQuery("SELECT * FROM TB_LTWINNUM;",
+
+    function(err, resultset) {
+                   resultset.toObjArray(function(err, results) {
+                    console.log(">>>>> toObjArray");
+                     if (results.length > 0) {
+                       console.log("results: " + results[0]); //results[0].id
+
+                     }
+                     callback(null, resultset);
+                   });
+    });
   })
 
-})
-
-
-
-
-  // asyncjs.series([
-  //   function(callback) {
-  //     console.log(">>>>> asyncjs.series");
-  //     // Select statement example.
-  //     conn.createStatement(function(err, statement) {
-  //       if (err) {
-  //         callback(err);
-  //       } else {
-  //         // Adjust some statement options before use.  See statement.js for
-  //         // a full listing of supported options.
-  //         statement.setFetchSize(100, function(err) {
-  //           if (err) {
-  //             callback(err);
-  //           } else {
-  //             statement.executeQuery("SELECT * FROM TB_LTWINNUM;",
-  //                                    function(err, resultset) {
-  //               if (err) {
-  //                 callback(err)
-  //               } else {
-  //                 resultset.toObjArray(function(err, results) {
-  //                   if (results.length > 0) {
-  //                     console.log("results: " + results[0]); //results[0].id
-
-  //                   }
-  //                   callback(null, resultset);
-  //                 });
-  //               }
-  //             });
-  //           }
-  //         });
-  //       }
-  //     });
-  //   },
-  // ], 
-  // function(err, results) {
-  //   // Results can also be processed here.
-  //   // Release the connection back to the pool.
-  //   console.log(">>>>> hsqldb.release");
-  //   hsqldb.release(connObj, function(err) {
-  //     if (err) {
-  //       console.log(err.message);
-  //     }
-  //   });
-  // })
 });
-
-
-
-
-
-/************************************************** */
-/************************************************** */
-/************************************************** */
-// let h2Init = false;
-
-// function getH2(callback) {
-//   console.log(">>>>> getH2");
-//   if (!h2Init)
-//     h2.initialize((err) => {
-//       h2Init = true;
-//       callback(err);
-//     });
-//   return callback(null);
-// };
-
-// function queryDB(sql, callback) {
-//   console.log(">>>>> queryDB");
-//   h2.reserve((err, connobj) => {
-//     console.log(">>>>> h2.reserve");
-//     connobj.conn.createStatement((err, statement) => {
-//       console.log(">>>>> connobj.conn.createStatement");
-//       if (callback) {
-//         statement.executeQuery(sql, (err, result) => h2.release(connobj, (err) => callback(result)));
-//       } else {
-//         statement.executeUpdate(sql, (err) => h2.release(connobj, (err) => { if (err) console.log(err) }));
-//       }
-//     });
-//   });
-// };
-
-// module.exports = {
-//   initialize: function(callback) {
-//     getH2((err) => {
-//       console.log(">>>>> module.exports");
-//       queryDB("SHOW TABLES");
-//     });
-//   }
-// };
