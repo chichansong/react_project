@@ -28,10 +28,10 @@ const j = schedule.scheduleJob('10 * * * * *', function() {
 const JDBC = require('jdbc');
 const jinst = require('jdbc/lib/jinst');
 
-console.log(">>>>> jinst jinst");
+console.log(">>>>> jinst jinst >>>>>");
 
 if (!jinst.isJvmCreated()) {
-  console.log(">>>>> jinst.isJvmCreated true");
+  console.log(">>>>> jinst.isJvmCreated true >>>>>");
   jinst.addOption("-Xrs");
   jinst.setupClasspath(['../h2-1.4.200.jar']);
 }
@@ -46,6 +46,9 @@ let h2 = new JDBC({
   }
 });
 
+/************************************************** */
+/************************************************** */
+/************************************************** */
 let h2Init = false;
 
 function getH2(callback) {
@@ -61,7 +64,9 @@ function getH2(callback) {
 function queryDB(sql, callback) {
   console.log(">>>>> queryDB");
   h2.reserve((err, connobj) => {
+    console.log(">>>>> h2.reserve");
     connobj.conn.createStatement((err, statement) => {
+      console.log(">>>>> connobj.conn.createStatement");
       if (callback) {
         statement.executeQuery(sql, (err, result) => h2.release(connobj, (err) => callback(result)));
       } else {
@@ -74,6 +79,7 @@ function queryDB(sql, callback) {
 module.exports = {
   initialize: function(callback) {
     getH2((err) => {
+      console.log(">>>>> module.exports");
       queryDB("SHOW TABLES");
     });
   }
