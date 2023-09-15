@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 const schedule = require('node-schedule');
 
 const j = schedule.scheduleJob('10 * * * * *', function() {
-	console.log("10s");
+	//console.log("10s");
 });
 
 
