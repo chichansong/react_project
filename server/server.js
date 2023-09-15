@@ -59,50 +59,59 @@ h2.initialize(function(err) {
 h2.reserve(function(err, connObj) {
   console.log(">>>>> h2.reserve");
   var conn = connObj.conn;
-
-  asyncjs.series([
-    function(callback) {
-      console.log(">>>>> asyncjs.series");
-      // Select statement example.
-      conn.createStatement(function(err, statement) {
-        if (err) {
-          callback(err);
-        } else {
-          // Adjust some statement options before use.  See statement.js for
-          // a full listing of supported options.
-          statement.setFetchSize(100, function(err) {
-            if (err) {
-              callback(err);
-            } else {
-              statement.executeQuery("SELECT * FROM TB_LTWINNUM;",
-                                     function(err, resultset) {
-                if (err) {
-                  callback(err)
-                } else {
-                  resultset.toObjArray(function(err, results) {
-                    if (results.length > 0) {
-                      console.log("results: " + results[0]); //results[0].id
-
-                    }
-                    callback(null, resultset);
-                  });
-                }
-              });
-            }
-          });
-        }
-      });
-    },
-  ], 
-  function(err, results) {
-    // Results can also be processed here.
-    // Release the connection back to the pool.
-    hsqldb.release(connObj, function(err) {
-      if (err) {
-        console.log(err.message);
-      }
-    });
+               
+  conn.createStatement(function(err, statement) {
   })
+
+})
+
+
+
+
+  // asyncjs.series([
+  //   function(callback) {
+  //     console.log(">>>>> asyncjs.series");
+  //     // Select statement example.
+  //     conn.createStatement(function(err, statement) {
+  //       if (err) {
+  //         callback(err);
+  //       } else {
+  //         // Adjust some statement options before use.  See statement.js for
+  //         // a full listing of supported options.
+  //         statement.setFetchSize(100, function(err) {
+  //           if (err) {
+  //             callback(err);
+  //           } else {
+  //             statement.executeQuery("SELECT * FROM TB_LTWINNUM;",
+  //                                    function(err, resultset) {
+  //               if (err) {
+  //                 callback(err)
+  //               } else {
+  //                 resultset.toObjArray(function(err, results) {
+  //                   if (results.length > 0) {
+  //                     console.log("results: " + results[0]); //results[0].id
+
+  //                   }
+  //                   callback(null, resultset);
+  //                 });
+  //               }
+  //             });
+  //           }
+  //         });
+  //       }
+  //     });
+  //   },
+  // ], 
+  // function(err, results) {
+  //   // Results can also be processed here.
+  //   // Release the connection back to the pool.
+  //   console.log(">>>>> hsqldb.release");
+  //   hsqldb.release(connObj, function(err) {
+  //     if (err) {
+  //       console.log(err.message);
+  //     }
+  //   });
+  // })
 });
 
 
