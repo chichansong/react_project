@@ -61,7 +61,8 @@ h2.reserve(function(err, connObj) {
   var conn = connObj.conn;
                
   conn.createStatement(function(err, statement) {
-    statement.executeQuery("SELECT * FROM TB_LTWINNUM",
+    //statement.executeQuery("SELECT * FROM TB_LTWINNUM;",
+    statement.executeQuery("SHOW TABLES;",
 
     function(err, resultset) {
       if(err){
