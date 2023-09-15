@@ -33,7 +33,7 @@ console.log(">>>>> jinst jinst >>>>>");
 if (!jinst.isJvmCreated()) {
   console.log(">>>>> jinst.isJvmCreated true >>>>>");
   jinst.addOption("-Xrs");
-  jinst.setupClasspath(['../h2-1.4.200.jar']);
+  jinst.setupClasspath(['/home/ubuntu/db/h2/bin/h2-1.4.200.jar']);
 }
 
 let h2 = new JDBC({
@@ -50,6 +50,7 @@ let h2 = new JDBC({
 h2.initialize(function(err) {
   console.log(">>>>> h2.initialize");
   if (err) {
+    console.log(">>>>> h2.initialize err true");
     console.log(err);
   }
 });
