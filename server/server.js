@@ -28,7 +28,10 @@ const j = schedule.scheduleJob('10 * * * * *', function() {
 const JDBC = require('jdbc');
 const jinst = require('jdbc/lib/jinst');
 
+console.log(">>>>> jinst jinst");
+
 if (!jinst.isJvmCreated()) {
+  console.log(">>>>> jinst.isJvmCreated true");
   jinst.addOption("-Xrs");
   jinst.setupClasspath(['../h2-1.4.200.jar']);
 }
@@ -46,6 +49,7 @@ let h2 = new JDBC({
 let h2Init = false;
 
 function getH2(callback) {
+  console.log(">>>>> getH2");
   if (!h2Init)
     h2.initialize((err) => {
       h2Init = true;
@@ -55,6 +59,7 @@ function getH2(callback) {
 };
 
 function queryDB(sql, callback) {
+  console.log(">>>>> queryDB");
   h2.reserve((err, connobj) => {
     connobj.conn.createStatement((err, statement) => {
       if (callback) {
@@ -69,14 +74,8 @@ function queryDB(sql, callback) {
 module.exports = {
   initialize: function(callback) {
     getH2((err) => {
-      queryDB("CREATE TABLE IF NOT EXISTS exoplanets ("
-        + "  id INT PRIMARY KEY AUTO_INCREMENT,"
-        + "  name VARCHAR NOT NULL,"
-        + "  year_discovered SIGNED,"
-        + "  light_years FLOAT,"
-        + "  mass FLOAT,"
-        + "  link VARCHAR)"
-      );
+      queryDB("SHOW TABLES");
     });
   }
 };
+*/
