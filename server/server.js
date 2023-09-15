@@ -64,14 +64,8 @@ h2.reserve(function(err, connObj) {
     statement.executeQuery("SELECT * FROM TB_LTWINNUM;",
 
     function(err, resultset) {
-                   resultset.toObjArray(function(err, results) {
-                    console.log(">>>>> toObjArray");
-                     if (results.length > 0) {
-                       console.log("results: " + results[0]); //results[0].id
-
-                     }
-                     callback(null, resultset);
-                   });
+      console.log(">>>>> resultset");
+      console.log(resultset);
     });
   })
 
