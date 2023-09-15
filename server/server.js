@@ -66,8 +66,6 @@ h2.reserve(function(err, connObj) {
     function(err, resultset) {
       console.log(">>>>> resultset 1");
       console.log(resultset);
-      console.log(">>>>> resultset 2");
-      console.log(resultset.toString());
     });
   })
 
