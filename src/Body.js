@@ -33,7 +33,6 @@ class Body extends Component {
           width: "100%",
           maxWidth: 360,
           bgcolor: "background.paper",
-          marginTop: "8px",
         }}
       >
         {/* dev 1 start */}

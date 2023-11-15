@@ -22,9 +22,9 @@ import Divider from "@mui/material/Divider";
 
 import Header from "./Header";
 import Body from "./Body";
-import Lotto from "./Lotto";
+import Lotto from "./lotto/Lotto";
 
-import Sample from "./Sample";
+import Sample from "./sample/Sample";
 
 export default function App() {
   return (

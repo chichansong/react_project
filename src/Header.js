@@ -24,35 +24,37 @@ class Header extends Component {
   //   };
   render() {
     return (
-      <Stack spacing={2} sx={{ flexGrow: 1 }}>
-        <ThemeProvider theme={darkTheme}>
-          <AppBar position="static" color="primary" enableColorOnDark>
-            <Toolbar>
-              <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                sx={{ mr: 2 }}
-              >
-                <HomeIcon
-                  onClick={() => {
-                    window.location.href = "./";
-                  }}
-                />
-              </IconButton>
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                sx={{ flexGrow: 1 }}
-              >
-                {"REACT PROJECT"}
-              </Typography>
-            </Toolbar>
-          </AppBar>
-        </ThemeProvider>
-      </Stack>
+      <div style={{ marginBottom: "8px" }}>
+        <Stack spacing={2} sx={{ flexGrow: 1 }}>
+          <ThemeProvider theme={darkTheme}>
+            <AppBar position="static" color="primary" enableColorOnDark>
+              <Toolbar>
+                <IconButton
+                  size="large"
+                  edge="start"
+                  color="inherit"
+                  aria-label="menu"
+                  sx={{ mr: 2 }}
+                >
+                  <HomeIcon
+                    onClick={() => {
+                      window.location.href = "./";
+                    }}
+                  />
+                </IconButton>
+                <Typography
+                  variant="h6"
+                  noWrap
+                  component="div"
+                  sx={{ flexGrow: 1 }}
+                >
+                  {"REACT PROJECT"}
+                </Typography>
+              </Toolbar>
+            </AppBar>
+          </ThemeProvider>
+        </Stack>
+      </div>
     );
   }
 }
