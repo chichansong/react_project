@@ -4,7 +4,7 @@
 /* 아래는 위에서 설정한 내용 */
 .circle {
   border-radius: 50%;
-  width: calc(1em / 0.7);
+  width: 14%;
   height: calc(1em / 0.7);
 
   display: flex;
@@ -20,7 +20,7 @@
 
 .markingCircle {
   border-radius: 50%;
-  width: calc(1em / 0.7);
+  width: 14%;
   height: calc(1em / 0.7);
 
   display: flex;

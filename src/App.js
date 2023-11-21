@@ -2,6 +2,7 @@ import "./styles.css";
 
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
+/*
 import AppBar from "@mui/material/AppBar";
 import Stack from "@mui/material/Stack";
 import Toolbar from "@mui/material/Toolbar";
@@ -19,6 +20,7 @@ import ImageIcon from "@mui/icons-material/Image";
 import WorkIcon from "@mui/icons-material/Work";
 import BeachAccessIcon from "@mui/icons-material/BeachAccess";
 import Divider from "@mui/material/Divider";
+*/
 
 import Header from "./Header";
 import Body from "./Body";

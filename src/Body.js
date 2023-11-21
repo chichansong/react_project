@@ -28,32 +28,33 @@ class Body extends Component {
   };
   render() {
     return (
-      <List
-        sx={{
-          width: "100%",
-          maxWidth: 360,
-          bgcolor: "background.paper",
-        }}
-      >
-        {/* dev 1 start */}
-        <ListItem
-          button
-          onClick={() => {
-            window.location.href = "./lotto";
+      <div>
+        <List
+          sx={{
+            width: "100%",
+            maxWidth: 360,
+            bgcolor: "background.paper",
           }}
         >
-          <ListItemAvatar>
-            <Avatar>
-              <AnalyticsIcon />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary="Lotto analysis" secondary="Nov 2023" />
-        </ListItem>
-        {/* dev 1 end */}
+          {/* dev 1 start */}
+          <ListItem
+            button
+            onClick={() => {
+              window.location.href = "./lotto";
+            }}
+          >
+            <ListItemAvatar>
+              <Avatar>
+                <AnalyticsIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="Lotto analysis" secondary="Nov 2023" />
+          </ListItem>
+          {/* dev 1 end */}
 
-        <Divider variant="inset" component="li" />
+          <Divider variant="inset" component="li" />
 
-        {/* <ListItem>
+          {/* <ListItem>
           <ListItemAvatar>
             <Avatar>
               <WorkIcon />
@@ -64,20 +65,21 @@ class Body extends Component {
 
         <Divider variant="inset" component="li" /> */}
 
-        <ListItem
-          button
-          onClick={() => {
-            window.location.href = "./sample";
-          }}
-        >
-          <ListItemAvatar>
-            <Avatar>
-              <BugReportIcon />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary="Sample" secondary="" />
-        </ListItem>
-      </List>
+          <ListItem
+            button
+            onClick={() => {
+              window.location.href = "./sample";
+            }}
+          >
+            <ListItemAvatar>
+              <Avatar>
+                <BugReportIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="Sample" secondary="" />
+          </ListItem>
+        </List>
+      </div>
     );
   }
 }

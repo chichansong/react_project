@@ -1,5 +1,12 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from "recoil";
 
 import App from "./App";
 
@@ -8,6 +15,8 @@ const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <App />
-  </StrictMode>
+    <RecoilRoot>
+      <App />
+    </RecoilRoot>
+  </StrictMode>,
 );

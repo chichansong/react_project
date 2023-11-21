@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 
 import "./Lotto.css";
 
@@ -20,6 +20,7 @@ import "./Lotto.css";
   "drwtNo1": 11
 }
 */
+
 class Lotto extends Component {
   render() {
     return (
