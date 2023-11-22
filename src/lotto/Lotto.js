@@ -18,6 +18,7 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+//import axios from "axios";
 
 /*
 {
@@ -42,7 +43,27 @@ class Lotto extends Component {
   render() {
     function search() {
       console.log(`Hi there,`);
-      //axios 구현하기
+      alert(`${document.location.host}:5000`);
+
+      var httpRequest = new XMLHttpRequest();
+      /* Get 방식으로 name 파라미터와 함께 요청 */
+      httpRequest.open("GET", `${document.location.host}:5000`);
+      /* Response Type을 Json으로 사전 정의 */
+      httpRequest.responseType = "json";
+      /* 정의된 서버에 요청을 전송 */
+      httpRequest.send();
+      httpRequest.onreadystatechange = () => {
+        /* readyState가 Done이고 응답 값이 200일 때, 받아온 response로 name과 age를 그려줌 */
+        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+          if (httpRequest.status === 200) {
+            var result = httpRequest.response;
+            console.log(result);
+          } else {
+            alert("Request Error!");
+            console.log(result);
+          }
+        }
+      };
     }
 
     return (
