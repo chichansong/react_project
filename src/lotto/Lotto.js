@@ -43,11 +43,11 @@ class Lotto extends Component {
   render() {
     function search() {
       console.log(`Hi there,`);
-      alert(`${document.location.host}:5000`);
+      alert(`${document.location.host}`);
 
       var httpRequest = new XMLHttpRequest();
       /* Get 방식으로 name 파라미터와 함께 요청 */
-      httpRequest.open("GET", `${document.location.host}:5000`);
+      httpRequest.open("GET", `${document.location.host}`);
       /* Response Type을 Json으로 사전 정의 */
       httpRequest.responseType = "json";
       /* 정의된 서버에 요청을 전송 */
