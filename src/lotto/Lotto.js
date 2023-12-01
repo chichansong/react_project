@@ -42,13 +42,17 @@ import Typography from "@mui/material/Typography";
 class Lotto extends Component {
   render() {
     function search() {
-      console.log(`Hi there,`);
-      alert(`${document.location.host}`);
+      //console.log(`Hi there,`);
+      //alert(`${document.location.host}`);
 
       var httpRequest = new XMLHttpRequest();
       /* Get 방식으로 name 파라미터와 함께 요청 */
-      httpRequest.open("GET", `${document.location.host}`);
-      /* Response Type을 Json으로 사전 정의 */
+      //httpRequest.open("GET", `${document.location.host}`);
+
+      //https://5g3ydn-3000.csb.app/lotto
+      //https://5g3ydn-5000.csb.app
+      httpRequest.open("GET", "https://5g3ydn-5000.csb.app");
+      /* Response  Type을 Json으로 사전 정의 */
       httpRequest.responseType = "json";
       /* 정의된 서버에 요청을 전송 */
       httpRequest.send();
