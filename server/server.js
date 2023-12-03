@@ -32,13 +32,17 @@ app.get("/lotto/:round", (req, res) => {
     let data = "";
 
     // 응답 데이터를 수신할 때마다 호출
-    externalRes.on("data", (chunk) => {
+    externalRes.on("externalRes chunk", (chunk) => {
+      console.log("externalRes chunk :");
+      console.log(chunk);
       data += chunk;
     });
 
     // 전체 응답을 수신했을 때 호출
     externalRes.on("end", () => {
       // 응답 데이터를 클라이언트에 전송
+      console.log("externalRes end data :");
+      console.log(data);
       res.json(JSON.parse(data));
     });
   });
