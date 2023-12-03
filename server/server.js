@@ -16,40 +16,47 @@ app.listen(
     ), //한국시각으로 출력
 );
 
+//서버 기본 응답메세지
+app.get("/", (req, res) => {
+  res.send("Hellow World!! CSS server running!!\n");
+});
+
 //URL 경로주소 서버 호출시 로또 당첨번호 API 가져오기
 //파라미터 숫자 당첨회차
 app.get("/lotto/:round", (req, res) => {
   //https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1
-  console.log(">>>>> 1");
+  console.log(">>>>>>>>>>>>>>> 1");
   const round = req.params.round;
-  console.log(">>>>> 2");
+  console.log(">>>>>>>>>>>>>>> 2");
   const options = {
     hostname: "dhlottery.co.kr",
     path: `/common.do?method=getLottoNumber&drwNo=${round}`,
     method: "GET",
   };
-  console.log(">>>>> 3");
-  console.log(">>>>> options : ");
+  console.log(">>>>>>>>>>>>>>> 3");
+  console.log(">>>>>>>>>>>>>>> options : ");
   console.log(options);
 
   // HTTP 요청 생성
   const request = http.request(options, (httpRes) => {
     let data = "";
-    console.log(">>>>> httpRes : ");
+    let httpResCnt = 0;
+    console.log(">>>>>>>>>>>>>>> httpRes : ");
     console.log(httpRes);
     // 응답 데이터를 수신할 때마다 호출
     httpRes
       .on("res chunk", (chunk) => {
-        console.log("res chunk :");
+        console.log(">>>>>>>>>>>>>>> res chunk " + httpResCnt + " :");
         console.log(chunk);
         data += chunk;
+        httpResCnt++;
       })
       .on("end", () => {
         // 응답 데이터를 클라이언트에 전송
-        console.log("res end data :");
+        console.log(">>>>>>>>>>>>>>> res end data :");
         console.log(data);
-        res.json(JSON.parse(data));
-        //res.send(data);
+        //res.json(JSON.parse(data));
+        res.send(data);
       });
   });
 
