@@ -33,23 +33,23 @@ app.get("/lotto/:round", (req, res) => {
   console.log(options);
 
   // HTTP 요청 생성
-  const request = http.request(options, (externalRes) => {
+  const request = http.request(options, (httpRes) => {
     let data = "";
-
+    console.log(">>>>> httpRes : ");
+    console.log(httpRes);
     // 응답 데이터를 수신할 때마다 호출
-    externalRes.on("externalRes chunk", (chunk) => {
-      console.log("externalRes chunk :");
-      console.log(chunk);
-      data += chunk;
-    });
-
-    //전체 응답을 수신했을 때 호출
-    externalRes.on("end", () => {
-      // 응답 데이터를 클라이언트에 전송
-      console.log("externalRes end data :");
-      console.log(data);
-      res.json(JSON.parse(data));
-    });
+    httpRes
+      .on("res chunk", (chunk) => {
+        console.log("res chunk :");
+        console.log(chunk);
+        data += chunk;
+      })
+      .httpRes.on("end", () => {
+        // 응답 데이터를 클라이언트에 전송
+        console.log("res end data :");
+        console.log(data);
+        res.json(JSON.parse(data));
+      });
   });
 
   // 요청에 에러가 발생했을 때 호출
