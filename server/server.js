@@ -48,7 +48,8 @@ app.get("/lotto/:round", (req, res) => {
         // 응답 데이터를 클라이언트에 전송
         console.log("res end data :");
         console.log(data);
-        res.json(JSON.parse(data));
+        //res.json(JSON.parse(data));
+        res.send(data);
       });
   });
 
