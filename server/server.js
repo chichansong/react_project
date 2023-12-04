@@ -48,7 +48,7 @@ app.get("/lotto/:round", (req, res) => {
     // 응답 데이터를 수신할 때마다 호출
     httpRes.on("data", (chunk) => {
       console.log(">>>>>>>>>>>>>>> res chunk " + httpResCnt + " :");
-      //console.log(chunk);
+      console.log(chunk);
       data += chunk;
       httpResCnt++;
     });
