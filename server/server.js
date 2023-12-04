@@ -41,21 +41,21 @@ app.get("/lotto/:round", (req, res) => {
   // HTTP 요청 생성
   const request = http.request(options, (httpRes) => {
     let data = "";
-    //let httpResCnt = 0;
+    let httpResCnt = 0;
     console.log(">>>>>>>>>>>>>>> httpRes : ");
     console.log(httpRes);
     // 응답 데이터를 수신할 때마다 호출
     httpRes.on("data", (chunk) => {
-      //console.log(">>>>>>>>>>>>>>> res chunk " + httpResCnt + " :");
+      console.log(">>>>>>>>>>>>>>> res chunk " + httpResCnt + " :");
       //console.log(chunk);
       data += chunk;
-      //httpResCnt++;
+      httpResCnt++;
     });
 
     httpRes.on("end", () => {
       // 응답 데이터를 클라이언트에 전송
-      //console.log(">>>>>>>>>>>>>>> res end data :");
-      //console.log(data);
+      console.log(">>>>>>>>>>>>>>> res end data :");
+      console.log(data);
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(data);
     });
@@ -68,5 +68,5 @@ app.get("/lotto/:round", (req, res) => {
   });
 
   // 요청 전송
-  //request.end();
+  request.end();
 });
