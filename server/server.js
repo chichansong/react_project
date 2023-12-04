@@ -18,6 +18,7 @@ app.listen(
 
 //서버 기본 응답메세지
 app.get("/", (req, res) => {
+  console.log("default page request!!");
   res.send("Hellow World!! CSS server running!!\n");
 });
 
@@ -40,32 +41,32 @@ app.get("/lotto/:round", (req, res) => {
   // HTTP 요청 생성
   const request = http.request(options, (httpRes) => {
     let data = "";
-    let httpResCnt = 0;
+    //let httpResCnt = 0;
     console.log(">>>>>>>>>>>>>>> httpRes : ");
     console.log(httpRes);
     // 응답 데이터를 수신할 때마다 호출
-    httpRes
-      .on("res chunk", (chunk) => {
-        console.log(">>>>>>>>>>>>>>> res chunk " + httpResCnt + " :");
-        console.log(chunk);
-        data += chunk;
-        httpResCnt++;
-      })
-      .on("end", () => {
-        // 응답 데이터를 클라이언트에 전송
-        console.log(">>>>>>>>>>>>>>> res end data :");
-        console.log(data);
-        //res.json(JSON.parse(data));
-        res.send(data);
-      });
+    httpRes.on("data", (chunk) => {
+      //console.log(">>>>>>>>>>>>>>> res chunk " + httpResCnt + " :");
+      //console.log(chunk);
+      data += chunk;
+      //httpResCnt++;
+    });
+
+    httpRes.on("end", () => {
+      // 응답 데이터를 클라이언트에 전송
+      //console.log(">>>>>>>>>>>>>>> res end data :");
+      //console.log(data);
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(data);
+    });
   });
 
   // 요청에 에러가 발생했을 때 호출
   request.on("error", (error) => {
     console.log("Error:", error.message);
-    res.status(500).send(`Internal Server Error : ${error.message}`);
+    res.status(500).end(`Internal Server Error : ${error.message}`);
   });
 
   // 요청 전송
-  request.end();
+  //request.end();
 });
