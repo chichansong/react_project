@@ -4,11 +4,11 @@ import "./Lotto.css";
 
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
-import Divider from "@mui/material/Divider";
+// import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
-import DirectionsIcon from "@mui/icons-material/Directions";
+// import MenuIcon from "@mui/icons-material/Menu";
+// import SearchIcon from "@mui/icons-material/Search";
+// import DirectionsIcon from "@mui/icons-material/Directions";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import Button from "@mui/material/Button";
@@ -40,18 +40,28 @@ import Typography from "@mui/material/Typography";
 */
 
 class Lotto extends Component {
+  constructor(props) {
+    super(props);
+    console.log(`Hi there,>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>2`);
+    this.state = {
+      resResult: "1123123312",
+    };
+  }
+
   render() {
+    //const { resResult } = this.state;
+
     function search() {
-      //console.log(`Hi there,`);
-      //alert(`${document.location.host}`);
+      console.log(`Hi there,>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>1`);
+      //alert(this.state.resResult);
+      //this.state.resResult = "123123weaefaewaewfe";
+      //this.setState({ resResult: "1231" });
 
       var httpRequest = new XMLHttpRequest();
       /* Get 방식으로 name 파라미터와 함께 요청 */
       //httpRequest.open("GET", `${document.location.host}`);
-
-      //https://5g3ydn-3000.csb.app/lotto
       //https://5g3ydn-5000.csb.app
-      httpRequest.open("GET", "https://5g3ydn-5000.csb.app");
+      httpRequest.open("GET", "http://152.70.240.199:5000/lotto/300");
       /* Response  Type을 Json으로 사전 정의 */
       httpRequest.responseType = "json";
       /* 정의된 서버에 요청을 전송 */
@@ -101,6 +111,7 @@ class Lotto extends Component {
             </Button>
           </Paper>
         </Typography>
+        {this.state.resResult}
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
           <div id="wrapper">
             <div style={{ backgroundColor: "balck" }} className="circle">

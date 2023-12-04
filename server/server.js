@@ -30,7 +30,7 @@ app.get("/lotto/:round", (req, res) => {
   const round = req.params.round;
   console.log(">>>>>>>>>>>>>>> 2");
   const options = {
-    hostname: "dhlottery.co.kr",
+    hostname: "https://dhlottery.co.kr",
     path: `/common.do?method=getLottoNumber&drwNo=${round}`,
     method: "GET",
   };
