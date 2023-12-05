@@ -43,6 +43,16 @@ app.get("/lotto/:round", (req, res) => {
     port: 80,
     path: `/common.do?method=getLottoNumber&drwNo=${round}`,
     method: "GET",
+    headers: {
+      Accept:
+        "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+      "Accept-Encoding": "gzip, deflate, br",
+      "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
+      Connection: "keep-alive",
+      Cookie:
+        "WMONID=sBNGF_gqzYi; JSESSIONID=0ossUZt700QTr7orYZGDa8m6LOA9JRqQLotO0BQy7A7sJO8tnFu6UKA4Qmch4Ta1.cG9ydGFsX2RvbWFpbi9wZDI=",
+      Host: "dhlottery.co.kr",
+    },
   };
   console.log(">>>>>>>>>>>>>>> 3");
   console.log(">>>>>>>>>>>>>>> options : ");
