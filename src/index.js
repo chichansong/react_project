@@ -15,8 +15,8 @@ const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <RecoilRoot>
-      <App />
-    </RecoilRoot>
+    {/* <RecoilRoot> */}
+    <App />
+    {/* </RecoilRoot> */}
   </StrictMode>,
 );

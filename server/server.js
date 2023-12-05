@@ -1,6 +1,15 @@
 const express = require("express");
 const app = express();
 const port = 5000;
+
+//CORS 허용
+const cors = require("cors");
+let corsOptions = {
+  origin: "152.70.240.199",
+  credentials: true,
+};
+app.use(cors(corsOptions));
+
 const http = require("http");
 const offset = 1000 * 60 * 60 * 9;
 const date = new Date(new Date().getTime() + offset);
@@ -25,7 +34,7 @@ app.get("/", (req, res) => {
 //URL 경로주소 서버 호출시 로또 당첨번호 API 가져오기
 //파라미터 숫자 당첨회차
 app.get("/lotto/:round", (req, res) => {
-  //https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1
+  //https://dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=300
   console.log(">>>>>>>>>>>>>>> 1");
   const round = req.params.round;
   console.log(">>>>>>>>>>>>>>> 2");
@@ -57,7 +66,7 @@ app.get("/lotto/:round", (req, res) => {
       // 응답 데이터를 클라이언트에 전송
       console.log(">>>>>>>>>>>>>>> res end data :");
       console.log(data);
-      res.writeHead(200, { "Content-Type": "application/json" });
+      res.writeHead(200, { "Content-Type": "text/html; charset=euc-kr" });
       res.end(data);
     });
   });
