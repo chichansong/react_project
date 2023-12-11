@@ -56,8 +56,7 @@ class Body extends Component {
           <ListItem
             button
             onClick={() => {
-              window.location.href =
-                "https://dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=300";
+              window.location.href = "http://152.70.240.199:5000/lotto/300";
             }}
           >
             <ListItemAvatar>
