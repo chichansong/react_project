@@ -36,7 +36,7 @@ class Body extends Component {
             bgcolor: "background.paper",
           }}
         >
-          {/* dev 1 start */}
+          {/* 1 */}
           <ListItem
             button
             onClick={() => {
@@ -50,21 +50,26 @@ class Body extends Component {
             </ListItemAvatar>
             <ListItemText primary="Lotto analysis" secondary="Nov 2023" />
           </ListItem>
-          {/* dev 1 end */}
 
           <Divider variant="inset" component="li" />
+          {/* 2 */}
+          <ListItem
+            button
+            onClick={() => {
+              window.location.href =
+                "https://dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=300";
+            }}
+          >
+            <ListItemAvatar>
+              <Avatar>
+                <BugReportIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="Lotto api" secondary="" />
+          </ListItem>
 
-          {/* <ListItem>
-          <ListItemAvatar>
-            <Avatar>
-              <WorkIcon />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary="TEST" secondary="Jan 9999" />
-        </ListItem>
-
-        <Divider variant="inset" component="li" /> */}
-
+          <Divider variant="inset" component="li" />
+          {/* 3 */}
           <ListItem
             button
             onClick={() => {

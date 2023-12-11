@@ -4,11 +4,7 @@ const port = 5000;
 
 //CORS 허용
 const cors = require("cors");
-let corsOptions = {
-  origin: "152.70.240.199",
-  credentials: true,
-};
-app.use(cors(corsOptions));
+app.use(cors());
 
 const http = require("http");
 const offset = 1000 * 60 * 60 * 9;
