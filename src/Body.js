@@ -21,6 +21,7 @@ import Divider from "@mui/material/Divider";
 
 import AnalyticsIcon from "@mui/icons-material/Analytics";
 import BugReportIcon from "@mui/icons-material/BugReport";
+import BoltIcon from "@mui/icons-material/Bolt";
 
 class Body extends Component {
   static defaultProps = {
@@ -61,7 +62,7 @@ class Body extends Component {
           >
             <ListItemAvatar>
               <Avatar>
-                <BugReportIcon />
+                <BoltIcon />
               </Avatar>
             </ListItemAvatar>
             <ListItemText primary="Lotto api" secondary="" />
